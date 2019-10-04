@@ -1,0 +1,20 @@
+metadata:
+  name: higlobe
+  namespace: default
+  labels:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw
+kind: Service
+spec:
+  selector:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

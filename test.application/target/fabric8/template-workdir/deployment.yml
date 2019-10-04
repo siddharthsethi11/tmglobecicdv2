@@ -1,0 +1,25 @@
+metadata:
+  name: higlobe
+kind: Deployment
+spec:
+  template:
+    metadata:
+      name: higlobe
+      namespace: default
+      labels:
+        container: higlobe
+        project: higlobe
+    spec:
+      containers:
+      - image: harbor.gb-poc.pks.berzuk.com/globepoc/higlobe
+        imagePullPolicy: Always
+        name: higlobe
+        env: []
+        ports:
+        - containerPort: 8080
+  replicas: 1
+  selector:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw

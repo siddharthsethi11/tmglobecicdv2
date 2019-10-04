@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw
+    expose: "true"
+    app: test.application
+    version: 1.0.0-SNAPSHOT
+  name: higlobe
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw
+    app: test.application
+  type: LoadBalancer

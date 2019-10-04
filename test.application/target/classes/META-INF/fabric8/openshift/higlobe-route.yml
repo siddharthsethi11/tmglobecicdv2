@@ -1,0 +1,20 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    container: higlobe
+    provider: fabric8
+    project: higlobe
+    group: com.tibco.bw
+    expose: "true"
+    app: test.application
+    version: 1.0.0-SNAPSHOT
+  name: higlobe
+  namespace: default
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: higlobe
